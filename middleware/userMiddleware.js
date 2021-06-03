@@ -4,6 +4,8 @@ const catchAsync = require("../error/catchAsync");
 const config = require("../config")
 const JWT = require("jsonwebtoken")
 const {promisify} = require("util")
+const UserModel = require("../users/userModel");
+
 exports.userauthorization = catchAsync(async (req, res, next) =>{
 
     const {token_Secret} = config.token
@@ -18,6 +20,8 @@ exports.userauthorization = catchAsync(async (req, res, next) =>{
 
     
   req.user = decodeToken
+  req.userdata = await UserModel.findByPk(  userid  );
+
   console.log("user data :", req.user);
   next()
 })
