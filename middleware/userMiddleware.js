@@ -20,6 +20,7 @@ exports.userauthorization = catchAsync(async (req, res, next) =>{
 
     
   req.user = decodeToken
+  const {  userid  } = req.user;;
   req.userdata = await UserModel.findByPk(  userid  );
 
   console.log("user data :", req.user);
