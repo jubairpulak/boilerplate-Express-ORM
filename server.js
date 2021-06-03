@@ -1,7 +1,7 @@
 "use strict"
 
 const dotenv = require("dotenv")
-// dotenv.config({path:'./config/.env'})
+ dotenv.config({path:'./config/.env'})
 
 const http = require('http')
 
